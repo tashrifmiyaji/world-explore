@@ -1,11 +1,48 @@
-import "./App.css";
+// external imports
+import { createBrowserRouter, RouterProvider } from "react-router";
 
-function App() {
-	return (
-		<>
-			<h1 className="text-3xl font-bold underline text-green-400">Hello world!</h1>
-		</>
-	);
-}
+// internal imports
+import "./app.css";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Country } from "./pages/Country";
+import { Contact } from "./pages/Contact";
+import { AppLayOut } from "./Components/layOut/AppLayOut";
+import { ErrorPage } from "./pages/Error";
+import { CountryIndividualCard } from "./Components/layOut/CountryIndividualCard";
 
-export default App;
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <AppLayOut />,
+		errorElement: <ErrorPage />,
+		children: [
+			{
+				path: "/",
+				element: <Home />,
+			},
+			{
+				path: "about",
+				element: <About />,
+			},
+			{
+				path: "country",
+				element: <Country />,
+			},
+			{
+				path: "country/:id",
+				element: <CountryIndividualCard/>
+			},
+			{
+				path: "contact",
+				element: <Contact />,
+			},
+		],
+	},
+]);
+
+const WorldExplore = () => {
+	return <RouterProvider router={router}></RouterProvider>;
+};
+
+export default WorldExplore;
