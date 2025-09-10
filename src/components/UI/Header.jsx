@@ -2,7 +2,7 @@
 import { NavLink, useLocation } from "react-router";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState, useEffect } from "react";
-import { mobileMenuAndContentAdjust } from "../../../utility/mobileMenuAndContentAdjust";
+import { mobileMenuAndContentAdjust } from "../../utility/mobileMenuAndContentAdjust";
 
 export const Header = () => {
 	const [showMenu, setShowMenu] = useState(false);
